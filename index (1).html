@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ToolVerse AI — 1000+ AI Tools, Free Online Tools & ChatGPT Prompts</title>
+<meta name="description" content="Discover the best AI tools, free online utilities and ChatGPT prompts — all in one place.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#15171C;
+    --bg-soft:#1B1E25;
+    --surface:#22262F;
+    --surface-hi:#2B2F3A;
+    --border:#343945;
+    --text:#F4F2ED;
+    --text-muted:#9AA0AE;
+    --amber:#FFB238;
+    --amber-dim:#8a6420;
+    --teal:#5EEAD4;
+    --danger:#FF6B6B;
+    --radius:14px;
+    --font-display:'Space Grotesk', sans-serif;
+    --font-body:'Inter', sans-serif;
+    --font-mono:'JetBrains Mono', monospace;
+  }
+  [data-theme="light"]{
+    --bg:#F7F5F0;
+    --bg-soft:#FFFFFF;
+    --surface:#FFFFFF;
+    --surface-hi:#EFEBE2;
+    --border:#E4E0D6;
+    --text:#1C1D22;
+    --text-muted:#63676F;
+    --amber:#C97F0A;
+    --teal:#0F8C7A;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    line-height:1.5;
+    transition:background .25s ease, color .25s ease;
+    overflow-x:hidden;
+  }
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  img{max-width:100%; display:block;}
+  button{font-family:inherit; cursor:pointer; border:none;}
+  input, select, textarea{font-family:inherit;}
+  ::selection{background:var(--amber); color:#15171C;}
+
+  .container{max-width:1180px; margin:0 auto; padding:0 24px;}
+
+  header{
+    position:sticky; top:0; z-index:100;
+    background:color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-row{ display:flex; align-items:center; gap:20px; height:72px; }
+  .logo{
+    font-family:var(--font-display); font-weight:700; font-size:1.3rem;
+    display:flex; align-items:center; gap:8px; white-space:nowrap;
+  }
+  .logo .dot{color:var(--amber);}
+  nav.main-nav{display:flex; gap:26px; margin-left:12px;}
+  nav.main-nav a{ font-size:.92rem; font-weight:500; color:var(--text-muted); transition:color .15s ease; }
+  nav.main-nav a:hover{color:var(--text);}
+  .nav-search{ flex:1; max-width:340px; position:relative; margin-left:auto; }
+  .nav-search input{
+    width:100%; background:var(--surface); border:1px solid var(--border);
+    border-radius:999px; padding:9px 16px 9px 38px; color:var(--text); font-size:.88rem; outline:none;
+  }
+  .nav-search input:focus{border-color:var(--amber);}
+  .nav-search svg{position:absolute; left:13px; top:50%; transform:translateY(-50%); width:15px; height:15px; opacity:.55;}
+  .icon-btn{
+    width:38px; height:38px; border-radius:999px; background:var(--surface);
+    border:1px solid var(--border); display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  }
+  .icon-btn svg{width:17px; height:17px;}
+  .burger{display:none;}
+  @media (max-width:880px){
+    nav.main-nav{display:none;}
+    .nav-search{display:none;}
+    .burger{display:flex;}
+  }
+
+  .hero{padding:72px 0 56px; position:relative;}
+  .hero-grid{display:grid; grid-template-columns:1.05fr 1fr; gap:56px; align-items:center;}
+  @media (max-width:960px){ .hero-grid{grid-template-columns:1fr;} }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:.78rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--amber); background:color-mix(in srgb, var(--amber) 14%, transparent);
+    padding:6px 14px; border-radius:999px; margin-bottom:22px;
+  }
+  h1{
+    font-family:var(--font-display); font-size:clamp(2.1rem, 4.6vw, 3.4rem);
+    font-weight:700; line-height:1.08; letter-spacing:-.01em; margin-bottom:20px;
+  }
+  h1 span{color:var(--amber);}
+  .hero-sub{color:var(--text-muted); font-size:1.05rem; max-width:520px; margin-bottom:30px;}
+  .stat-row{display:flex; gap:28px; margin-bottom:34px; flex-wrap:wrap;}
+  .stat b{ font-family:var(--font-display); font-size:1.5rem; display:block; color:var(--text); }
+  .stat span{font-size:.8rem; color:var(--text-muted);}
+  .btn-row{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    padding:13px 26px; border-radius:999px; font-weight:600; font-size:.92rem;
+    display:inline-flex; align-items:center; gap:8px; transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-primary{background:var(--amber); color:#15171C;}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 10px 24px -8px color-mix(in srgb, var(--amber) 60%, transparent);}
+  .btn-ghost{background:var(--surface); border:1px solid var(--border); color:var(--text);}
+  .btn-ghost:hover{border-color:var(--amber);}
+
+  .console-wrap{ position:relative; }
+  .hero-illustration{
+    position:absolute; top:-58px; right:-36px; width:150px; height:auto;
+    z-index:2; filter:drop-shadow(0 12px 24px rgba(0,0,0,.35));
+    animation:botFloat 4s ease-in-out infinite;
+  }
+  @keyframes botFloat{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(-8px); }
+  }
+  @media (max-width:960px){
+    .hero-illustration{ top:-40px; right:-10px; width:110px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .hero-illustration{ animation:none; }
+  }
+  .console{
+    background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+    overflow:hidden; box-shadow:0 30px 60px -30px rgba(0,0,0,.5);
+    position:relative; z-index:1;
+  }
+  .console-bar{ display:flex; align-items:center; gap:8px; padding:12px 16px; border-bottom:1px solid var(--border); background:var(--surface-hi); }
+  .console-bar .dots{display:flex; gap:6px;}
+  .console-bar .dots i{width:10px; height:10px; border-radius:50%; display:inline-block;}
+  .console-bar .dots i:nth-child(1){background:#FF6B6B;}
+  .console-bar .dots i:nth-child(2){background:#FFB238;}
+  .console-bar .dots i:nth-child(3){background:#5EEAD4;}
+  .console-bar span{margin-left:6px; font-family:var(--font-mono); font-size:.76rem; color:var(--text-muted);}
+  .console-tabs{display:flex; gap:4px; padding:10px 12px 0; flex-wrap:wrap;}
+  .console-tab{ padding:8px 14px; font-size:.8rem; font-weight:600; border-radius:8px 8px 0 0; color:var(--text-muted); background:transparent; }
+  .console-tab.active{background:var(--bg-soft); color:var(--amber);}
+  .console-body{padding:18px; background:var(--bg-soft);}
+  .console-body textarea, .console-body input[type=text], .console-body input[type=number]{
+    width:100%; background:var(--surface); border:1px solid var(--border); border-radius:10px;
+    color:var(--text); padding:11px 13px; font-family:var(--font-mono); font-size:.85rem; outline:none; resize:vertical;
+  }
+  .console-body textarea:focus, .console-body input:focus{border-color:var(--amber);}
+  .console-out{
+    margin-top:12px; font-family:var(--font-mono); font-size:.82rem; background:var(--surface);
+    border:1px dashed var(--border); border-radius:10px; padding:12px; color:var(--teal);
+    min-height:44px; word-break:break-all; white-space:pre-wrap;
+  }
+  .console-actions{display:flex; gap:10px; margin-top:12px; flex-wrap:wrap; align-items:center;}
+  .mini-btn{ background:var(--surface-hi); border:1px solid var(--border); color:var(--text); padding:8px 14px; border-radius:8px; font-size:.8rem; font-weight:600; }
+  .mini-btn:hover{border-color:var(--amber);}
+  .mini-btn.primary{background:var(--amber); color:#15171C; border-color:var(--amber);}
+  .field-label{font-size:.74rem; color:var(--text-muted); margin-bottom:6px; display:block; font-weight:600; text-transform:uppercase; letter-spacing:.04em;}
+
+  section{padding:64px 0;}
+  .section-head{ display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:34px; gap:16px; flex-wrap:wrap; }
+  .section-head h2{ font-family:var(--font-display); font-size:1.7rem; font-weight:700; }
+  .section-head p{color:var(--text-muted); font-size:.92rem; margin-top:6px;}
+  .section-tag{font-family:var(--font-mono); font-size:.75rem; color:var(--amber); letter-spacing:.05em;}
+
+  .card-grid{display:grid; grid-template-columns:repeat(4, 1fr); gap:16px;}
+  @media (max-width:960px){.card-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.card-grid{grid-template-columns:1fr;}}
+  .tool-card{ position:relative; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:20px; transition:transform .15s ease, border-color .15s ease; }
+  .tool-card:hover{transform:translateY(-4px); border-color:var(--amber);}
+  .card-badge{
+    position:absolute; top:14px; right:14px; font-size:.65rem; font-weight:700;
+    padding:3px 9px; border-radius:999px; background:var(--amber); color:#15171C; letter-spacing:.02em;
+  }
+  .reveal{ opacity:0; transform:translateY(18px); transition:opacity .5s ease, transform .5s ease; }
+  .reveal.visible{ opacity:1; transform:translateY(0); }
+  @media (prefers-reduced-motion: reduce){
+    .reveal{ opacity:1; transform:none; transition:none; }
+  }
+  .tool-logo{ width:42px; height:42px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:700; font-size:1rem; margin-bottom:14px; color:#15171C; }
+  .tool-card h3{font-size:1rem; font-weight:600; margin-bottom:6px;}
+  .tool-card p{font-size:.82rem; color:var(--text-muted); margin-bottom:14px; min-height:36px;}
+  .tool-card .row-bottom{display:flex; justify-content:space-between; align-items:center;}
+  .badge{ font-size:.68rem; font-weight:700; padding:3px 9px; border-radius:999px; background:color-mix(in srgb, var(--teal) 16%, transparent); color:var(--teal); }
+  .visit{font-size:.78rem; font-weight:600; color:var(--amber);}
+
+  .tools-layout{display:grid; grid-template-columns:280px 1fr; gap:24px;}
+  @media (max-width:880px){ .tools-layout{grid-template-columns:1fr;} }
+  .tool-list{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:10px; height:fit-content; }
+  .tool-list-cat{ font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; color:var(--text-muted); padding:12px 12px 6px; font-weight:700; }
+  .tool-list button.tl-item{ width:100%; text-align:left; background:transparent; color:var(--text); padding:10px 12px; border-radius:9px; font-size:.86rem; display:flex; align-items:center; gap:10px; }
+  .tool-list button.tl-item:hover{background:var(--surface-hi);}
+  .tool-list button.tl-item.active{background:var(--amber); color:#15171C; font-weight:600;}
+  .tool-panel{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:26px; min-height:340px; }
+  .tool-panel h3{font-family:var(--font-display); font-size:1.25rem; margin-bottom:6px;}
+  .tool-panel .desc{color:var(--text-muted); font-size:.85rem; margin-bottom:20px;}
+  .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  @media (max-width:640px){.grid-2{grid-template-columns:1fr;}}
+  .switch-row{display:flex; align-items:center; gap:10px; font-size:.84rem; color:var(--text-muted); margin:6px 0;}
+  .switch-row input{width:16px; height:16px; accent-color:var(--amber);}
+  .qr-preview{background:#fff; padding:10px; border-radius:10px; display:inline-block; margin-top:12px;}
+  .stat-line{display:flex; gap:20px; flex-wrap:wrap; margin-top:14px;}
+  .stat-line div{background:var(--surface-hi); border-radius:9px; padding:10px 16px;}
+  .stat-line b{display:block; font-family:var(--font-mono); font-size:1.05rem;}
+  .stat-line span{font-size:.72rem; color:var(--text-muted);}
+
+  .prompt-tabs{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:22px;}
+  .p-tab{ padding:8px 16px; border-radius:999px; font-size:.82rem; font-weight:600; background:var(--surface); border:1px solid var(--border); color:var(--text-muted); }
+  .p-tab.active{background:var(--amber); color:#15171C; border-color:var(--amber);}
+  .prompt-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px;}
+  @media (max-width:760px){.prompt-grid{grid-template-columns:1fr;}}
+  .prompt-card{ background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:18px; display:flex; flex-direction:column; gap:12px; }
+  .prompt-card p{font-size:.87rem; color:var(--text); line-height:1.55;}
+  .prompt-card .foot{display:flex; justify-content:space-between; align-items:center;}
+  .copy-btn{ font-size:.75rem; font-weight:700; color:var(--teal); background:transparent; display:flex; align-items:center; gap:5px; }
+
+  .blog-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  @media (max-width:860px){.blog-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:560px){.blog-grid{grid-template-columns:1fr;}}
+  .blog-card{ border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; background:var(--surface); cursor:pointer; transition:transform .15s ease, border-color .15s ease; }
+  .blog-card:hover{ transform:translateY(-4px); border-color:var(--amber); }
+  .blog-modal-overlay{
+    position:fixed; inset:0; background:rgba(0,0,0,.6); backdrop-filter:blur(4px);
+    display:flex; align-items:center; justify-content:center; padding:24px;
+    opacity:0; pointer-events:none; transition:opacity .2s ease; z-index:1000;
+  }
+  .blog-modal-overlay.show{ opacity:1; pointer-events:auto; }
+  .blog-modal{
+    background:var(--bg-soft); border:1px solid var(--border); border-radius:var(--radius);
+    max-width:640px; width:100%; max-height:82vh; overflow-y:auto; padding:36px; position:relative;
+  }
+  .blog-modal h2{ font-family:var(--font-display); font-size:1.5rem; margin-bottom:18px; line-height:1.25; }
+  .blog-modal p{ white-space:pre-line; color:var(--text-muted); font-size:.94rem; line-height:1.75; }
+  .blog-modal-close{
+    position:absolute; top:18px; right:18px; width:34px; height:34px; border-radius:999px;
+    background:var(--surface-hi); border:1px solid var(--border); color:var(--text); font-size:1rem;
+  }
+  .blog-modal-close:hover{ border-color:var(--amber); }
+  .blog-thumb{height:120px; display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:700; font-size:.85rem;}
+  .blog-card .bc-body{padding:16px;}
+  .blog-card h4{font-size:.95rem; margin-bottom:6px;}
+  .blog-card span{font-size:.74rem; color:var(--text-muted);}
+
+  .strip{
+    background:linear-gradient(120deg, var(--surface), var(--surface-hi));
+    border:1px solid var(--border); border-radius:var(--radius); padding:34px;
+    display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap;
+  }
+  .strip h3{font-family:var(--font-display); font-size:1.25rem; margin-bottom:6px;}
+  .strip p{color:var(--text-muted); font-size:.86rem;}
+
+  footer{border-top:1px solid var(--border); padding:44px 0 30px; margin-top:20px;}
+  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:30px;}
+  @media (max-width:760px){.foot-grid{grid-template-columns:1fr 1fr;}}
+  .foot-grid h5{font-size:.85rem; margin-bottom:14px; color:var(--text);}
+  .foot-grid a{display:block; font-size:.82rem; color:var(--text-muted); margin-bottom:10px;}
+  .foot-grid a:hover{color:var(--amber);}
+  .social-row{display:flex; gap:10px;}
+  .social-icon{
+    width:36px; height:36px; border-radius:10px; background:var(--surface);
+    border:1px solid var(--border); display:flex; align-items:center; justify-content:center;
+    color:var(--text-muted); transition:color .15s ease, border-color .15s ease, transform .15s ease;
+  }
+  .social-icon svg{width:17px; height:17px;}
+  .social-icon:hover{ color:var(--amber); border-color:var(--amber); transform:translateY(-2px); }
+  .foot-bottom{
+    margin-top:34px; padding-top:22px; border-top:1px solid var(--border);
+    display:flex; justify-content:space-between; color:var(--text-muted); font-size:.78rem; flex-wrap:wrap; gap:10px;
+  }
+
+  .toast{
+    position:fixed; bottom:24px; left:50%; transform:translateX(-50%) translateY(20px);
+    background:var(--surface-hi); border:1px solid var(--amber); color:var(--text);
+    padding:11px 20px; border-radius:999px; font-size:.85rem; font-weight:600;
+    opacity:0; pointer-events:none; transition:all .25s ease; z-index:999;
+  }
+  .toast.show{opacity:1; transform:translateX(-50%) translateY(0);}
+
+  ::-webkit-scrollbar{width:9px; height:9px;}
+  ::-webkit-scrollbar-thumb{background:var(--surface-hi); border-radius:999px;}
+</style>
+</head>
+<body data-theme="dark">
+
+<header>
+  <div class="container nav-row">
+    <div class="logo">
+      <svg width="36" height="36" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+        <rect width="38" height="38" rx="11" fill="var(--amber)"/>
+        <path d="M10 12h18v4.2h-6.8V28h-4.4V16.2H10z" fill="#15171C"/>
+        <circle cx="29" cy="9" r="3.2" fill="var(--teal)"/>
+      </svg>
+      ToolVerse<span style="color:var(--amber)">AI</span>
+    </div>
+    <nav class="main-nav">
+      <a href="#hero">Home</a>
+      <a href="#ai-tools">AI Tools</a>
+      <a href="#prompts">Prompts</a>
+      <a href="#free-tools">Tools</a>
+      <a href="#blog">Blog</a>
+    </nav>
+    <div class="nav-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input id="globalSearch" type="text" placeholder="Search AI tools, prompts, utilities...">
+    </div>
+    <button class="icon-btn" id="themeToggle" title="Toggle dark/light">
+      <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+    </button>
+    <button class="icon-btn burger" title="Menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<section class="hero" id="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">⚡ 1000+ AI Tools · 5000+ Prompts · 50+ Free Utilities</div>
+      <h1>Every AI tool, prompt & utility <span>in one workshop.</span></h1>
+      <p class="hero-sub">Discover the best AI tools, ready-to-use ChatGPT prompts, and free online utilities — all in one place. Find it, try it, ship your work faster.</p>
+      <div class="stat-row">
+        <div class="stat"><b>1,000+</b><span>AI Tools Indexed</span></div>
+        <div class="stat"><b>5,000+</b><span>Ready Prompts</span></div>
+        <div class="stat"><b>50+</b><span>Free Utilities</span></div>
+      </div>
+      <div class="btn-row">
+        <a href="#ai-tools" class="btn btn-primary">Browse AI Tools →</a>
+        <a href="#free-tools" class="btn btn-ghost">Try a Free Tool</a>
+      </div>
+    </div>
+
+    <div class="console-wrap">
+      <svg class="hero-illustration" viewBox="0 0 260 280" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <radialGradient id="botGlow" cx="50%" cy="40%" r="60%">
+            <stop offset="0%" stop-color="var(--teal)" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="var(--teal)" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="botBody" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="var(--surface-hi)"/>
+            <stop offset="100%" stop-color="var(--surface)"/>
+          </linearGradient>
+        </defs>
+
+        <circle cx="140" cy="130" r="120" fill="url(#botGlow)"/>
+
+        <!-- floating badges -->
+        <g>
+          <rect x="14" y="40" width="42" height="42" rx="12" fill="var(--surface-hi)" stroke="var(--border)"/>
+          <path d="M35 50l3.5 7.2 7.9 1.1-5.7 5.6 1.3 7.9-7-3.7-7 3.7 1.3-7.9-5.7-5.6 7.9-1.1z" fill="var(--amber)"/>
+        </g>
+        <g>
+          <rect x="190" y="70" width="42" height="42" rx="12" fill="var(--surface-hi)" stroke="var(--border)"/>
+          <path d="M203 84h16a3 3 0 013 3v14l-6-4h-13a3 3 0 01-3-3V87a3 3 0 013-3z" fill="var(--teal)"/>
+        </g>
+        <g>
+          <rect x="18" y="190" width="40" height="40" rx="12" fill="var(--surface-hi)" stroke="var(--border)"/>
+          <rect x="26" y="199" width="24" height="18" rx="3" fill="none" stroke="var(--amber)" stroke-width="2"/>
+          <circle cx="32" cy="205" r="2" fill="var(--amber)"/>
+          <path d="M27 214l6-6 4 4 6-7 6 9" fill="none" stroke="var(--amber)" stroke-width="2"/>
+        </g>
+
+        <!-- antenna -->
+        <line x1="140" y1="46" x2="140" y2="66" stroke="var(--border)" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="140" cy="40" r="8" fill="var(--amber)"/>
+
+        <!-- head -->
+        <rect x="76" y="66" width="128" height="98" rx="28" fill="url(#botBody)" stroke="var(--border)" stroke-width="2"/>
+        <!-- eyes -->
+        <circle cx="118" cy="112" r="12" fill="var(--teal)"/>
+        <circle cx="162" cy="112" r="12" fill="var(--teal)"/>
+        <circle cx="121" cy="108" r="3.5" fill="var(--bg)"/>
+        <circle cx="165" cy="108" r="3.5" fill="var(--bg)"/>
+        <!-- mouth -->
+        <rect x="118" y="138" width="44" height="8" rx="4" fill="var(--amber)" opacity="0.85"/>
+
+        <!-- body -->
+        <rect x="92" y="170" width="96" height="80" rx="22" fill="url(#botBody)" stroke="var(--border)" stroke-width="2"/>
+        <rect x="112" y="192" width="56" height="36" rx="10" fill="var(--bg-soft)" stroke="var(--border)"/>
+        <circle cx="128" cy="210" r="5" fill="var(--amber)"/>
+        <circle cx="152" cy="210" r="5" fill="var(--teal)"/>
+
+        <!-- arms -->
+        <rect x="66" y="182" width="20" height="46" rx="10" fill="var(--surface-hi)" stroke="var(--border)"/>
+        <rect x="194" y="182" width="20" height="46" rx="10" fill="var(--surface-hi)" stroke="var(--border)"/>
+      </svg>
+
+      <div class="console">
+        <div class="console-bar">
+          <div class="dots"><i></i><i></i><i></i></div>
+          <span>quick-tool.run</span>
+        </div>
+        <div class="console-tabs" id="heroTabs">
+          <button class="console-tab active" data-tool="word">Word Counter</button>
+          <button class="console-tab" data-tool="password">Password Gen</button>
+          <button class="console-tab" data-tool="case">Case Convert</button>
+        </div>
+        <div class="console-body" id="heroBody"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ai-tools">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-tag">// trending</div>
+        <h2>Best AI Tools Right Now</h2>
+        <p>Hand-picked, most-searched AI tools across chat, image, video and voice.</p>
+      </div>
+    </div>
+    <div class="card-grid" id="aiToolsGrid"></div>
+  </div>
+</section>
+
+<section id="free-tools">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-tag">// workshop</div>
+        <h2>Free Online Tools</h2>
+        <p>No signup. Runs fully in your browser.</p>
+      </div>
+    </div>
+    <div class="tools-layout">
+      <div class="tool-list" id="toolList"></div>
+      <div class="tool-panel" id="toolPanel"></div>
+    </div>
+  </div>
+</section>
+
+<section id="prompts">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-tag">// prompt library</div>
+        <h2>Popular ChatGPT Prompts</h2>
+        <p>Copy-ready prompts for work, study and content.</p>
+      </div>
+    </div>
+    <div class="prompt-tabs" id="promptTabs"></div>
+    <div class="prompt-grid" id="promptGrid"></div>
+  </div>
+</section>
+
+<section id="blog">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="section-tag">// journal</div>
+        <h2>Latest Articles</h2>
+        <p>Guides, comparisons and tips to get more out of AI.</p>
+      </div>
+    </div>
+    <div class="blog-grid" id="blogGrid"></div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="strip">
+      <div>
+        <h3>Own a tool, prompt pack, or want a featured listing?</h3>
+        <p>Sponsored placements, affiliate partnerships & premium prompt packs available.</p>
+      </div>
+      <a href="#" class="btn btn-primary" onclick="showToast('Contact form coming soon'); return false;">Get Featured →</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="logo" style="margin-bottom:12px;">
+          <svg width="32" height="32" viewBox="0 0 38 38" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
+            <rect width="38" height="38" rx="11" fill="var(--amber)"/>
+            <path d="M10 12h18v4.2h-6.8V28h-4.4V16.2H10z" fill="#15171C"/>
+            <circle cx="29" cy="9" r="3.2" fill="var(--teal)"/>
+          </svg>
+          ToolVerse<span style="color:var(--amber)">AI</span>
+        </div>
+        <p style="color:var(--text-muted); font-size:.85rem; max-width:280px; margin-bottom:18px;">1000+ AI tools, free online utilities and ChatGPT prompts — all in one place.</p>
+        <div class="social-row">
+          <a href="#" onclick="showToast('Coming soon'); return false;" aria-label="Facebook" class="social-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+          </a>
+          <a href="#" onclick="showToast('Coming soon'); return false;" aria-label="Instagram" class="social-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          </a>
+          <a href="#" onclick="showToast('Coming soon'); return false;" aria-label="YouTube" class="social-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l6 3-6 3z" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" onclick="showToast('Coming soon'); return false;" aria-label="TikTok" class="social-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3v11.5a3.5 3.5 0 11-3-3.46"/><path d="M14 3c.5 3 2.5 5 6 5.3"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h5>Explore</h5>
+        <a href="#ai-tools">AI Tools</a>
+        <a href="#prompts">Prompts</a>
+        <a href="#free-tools">Free Tools</a>
+        <a href="#blog">Blog</a>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <a href="#" onclick="openPageModal('about'); return false;">About</a>
+        <a href="#" onclick="openSubmitModal(); return false;">Submit a Tool</a>
+        <a href="#" onclick="openPageModal('advertise'); return false;">Advertise</a>
+      </div>
+      <div>
+        <h5>Legal</h5>
+        <a href="#" onclick="openPageModal('privacy'); return false;">Privacy Policy</a>
+        <a href="#" onclick="openPageModal('terms'); return false;">Terms of Use</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 ToolVerse AI. All rights reserved.</span>
+      <span>Built with ♥ by Nabeela Apps</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<div class="blog-modal-overlay" id="blogModalOverlay" onclick="if(event.target===this) closeBlogModal()">
+  <div class="blog-modal">
+    <button class="blog-modal-close" onclick="closeBlogModal()" aria-label="Close">✕</button>
+    <span class="badge" id="blogModalTag" style="margin-bottom:14px; display:inline-block;">Tag</span>
+    <h2 id="blogModalTitle"></h2>
+    <p id="blogModalBody"></p>
+  </div>
+</div>
+
+<div class="blog-modal-overlay" id="submitModalOverlay" onclick="if(event.target===this) closeSubmitModal()">
+  <div class="blog-modal">
+    <button class="blog-modal-close" onclick="closeSubmitModal()" aria-label="Close">✕</button>
+    <span class="badge" style="margin-bottom:14px; display:inline-block; color:var(--amber);">Submit a Tool</span>
+    <h2>Get your AI tool listed</h2>
+    <p style="margin-bottom:20px;">Tell us about your tool and we'll review it for listing on ToolVerse AI.</p>
+    <form id="submitToolForm" onsubmit="handleSubmitTool(event)">
+      <span class="field-label">Tool name</span>
+      <input type="text" id="st-name" placeholder="e.g. Kids World Learning App" required style="width:100%; background:var(--surface); border:1px solid var(--border); border-radius:10px; color:var(--text); padding:11px 13px; font-size:.88rem; margin-bottom:14px;">
+      <span class="field-label">Website URL</span>
+      <input type="url" id="st-url" placeholder="https://yourtool.com" required style="width:100%; background:var(--surface); border:1px solid var(--border); border-radius:10px; color:var(--text); padding:11px 13px; font-size:.88rem; margin-bottom:14px;">
+      <span class="field-label">Category</span>
+      <select id="st-category" style="width:100%; background:var(--surface); border:1px solid var(--border); border-radius:10px; color:var(--text); padding:11px 13px; font-size:.88rem; margin-bottom:14px;">
+        <option>Chat</option><option>Image</option><option>Video</option><option>Voice</option>
+        <option>Design</option><option>Productivity</option><option>Other</option>
+      </select>
+      <span class="field-label">Your email</span>
+      <input type="email" id="st-email" placeholder="you@example.com" required style="width:100%; background:var(--surface); border:1px solid var(--border); border-radius:10px; color:var(--text); padding:11px 13px; font-size:.88rem; margin-bottom:14px;">
+      <span class="field-label">Short description</span>
+      <textarea id="st-desc" rows="3" placeholder="What does your tool do?" style="width:100%; background:var(--surface); border:1px solid var(--border); border-radius:10px; color:var(--text); padding:11px 13px; font-size:.88rem; margin-bottom:18px; resize:vertical;"></textarea>
+      <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Submit for Review</button>
+    </form>
+  </div>
+</div>
+
+<script>
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = document.getElementById('themeIcon');
+let theme = 'dark';
+themeToggle.addEventListener('click', () => {
+  theme = theme === 'dark' ? 'light' : 'dark';
+  document.body.setAttribute('data-theme', theme);
+  themeIcon.innerHTML = theme === 'dark'
+    ? '<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>'
+    : '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>';
+});
+
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(window._toastTimer);
+  window._toastTimer = setTimeout(()=> t.classList.remove('show'), 2200);
+}
+
+const aiTools = [
+  {name:"ChatGPT", by:"OpenAI", desc:"Conversational AI for writing, coding & research.", tag:"Chat", color:"#5EEAD4", url:"https://chat.openai.com", rating:4.9, badge:"Popular"},
+  {name:"Claude", by:"Anthropic", desc:"Helpful, safe AI assistant for work & reasoning.", tag:"Chat", color:"#FFB238", url:"https://claude.ai", rating:4.8, badge:"Popular"},
+  {name:"Gemini", by:"Google", desc:"Google's multimodal AI for text, image & code.", tag:"Chat", color:"#8ab4f8", url:"https://gemini.google.com", rating:4.6, badge:null},
+  {name:"Perplexity", by:"Perplexity AI", desc:"AI-powered answer engine with live citations.", tag:"Search", color:"#5EEAD4", url:"https://perplexity.ai", rating:4.7, badge:"Trending"},
+  {name:"Canva AI", by:"Canva", desc:"AI design tools for social posts & presentations.", tag:"Design", color:"#8b5cf6", url:"https://canva.com", rating:4.7, badge:null},
+  {name:"ElevenLabs", by:"ElevenLabs", desc:"Realistic AI voice generation & cloning.", tag:"Voice", color:"#FF6B6B", url:"https://elevenlabs.io", rating:4.5, badge:"New"},
+  {name:"Midjourney", by:"Midjourney", desc:"High-quality AI image generation via prompts.", tag:"Image", color:"#f472b6", url:"https://midjourney.com", rating:4.8, badge:"Trending"},
+  {name:"Runway", by:"Runway", desc:"AI video generation & editing suite.", tag:"Video", color:"#fbbf24", url:"https://runwayml.com", rating:4.4, badge:"New"},
+];
+function starRow(rating){
+  const full = Math.round(rating);
+  let s = '';
+  for(let i=1;i<=5;i++){ s += i <= full ? '★' : '☆'; }
+  return `<span style="color:var(--amber); letter-spacing:1px;">${s}</span> <span style="color:var(--text-muted); font-size:.75rem;">${rating.toFixed(1)}</span>`;
+}
+const aiGrid = document.getElementById('aiToolsGrid');
+aiTools.forEach(t=>{
+  aiGrid.innerHTML += `
+    <div class="tool-card reveal" data-name="${t.name.toLowerCase()}">
+      ${t.badge ? `<span class="card-badge">${t.badge}</span>` : ''}
+      <div class="tool-logo" style="background:${t.color}">${t.name[0]}</div>
+      <h3>${t.name}</h3>
+      <p>${t.desc}</p>
+      <div style="margin-bottom:12px;">${starRow(t.rating)}</div>
+      <div class="row-bottom">
+        <span class="badge">${t.tag}</span>
+        <a class="visit" href="${t.url}" target="_blank" rel="noopener">Visit →</a>
+      </div>
+    </div>`;
+});
+
+const toolCats = [
+  {cat:"Text Tools", items:["word","case","dup"]},
+  {cat:"Developer Tools", items:["json","b64","urlenc"]},
+  {cat:"Utility Tools", items:["password","qr","uuid"]},
+];
+const toolMeta = {
+  word:{icon:"🔤", label:"Word Counter"},
+  case:{icon:"🔠", label:"Case Converter"},
+  dup:{icon:"🧹", label:"Remove Duplicate Lines"},
+  json:{icon:"{ }", label:"JSON Formatter"},
+  b64:{icon:"⌥", label:"Base64 Encode/Decode"},
+  urlenc:{icon:"🔗", label:"URL Encode/Decode"},
+  password:{icon:"🔑", label:"Password Generator"},
+  qr:{icon:"▦", label:"QR Code Generator"},
+  uuid:{icon:"#", label:"UUID Generator"},
+};
+const toolListEl = document.getElementById('toolList');
+toolCats.forEach(c=>{
+  toolListEl.innerHTML += `<div class="tool-list-cat">${c.cat}</div>` +
+    c.items.map(id=>`<button class="tl-item" data-tool="${id}"><span>${toolMeta[id].icon}</span>${toolMeta[id].label}</button>`).join('');
+});
+
+function setActiveToolBtn(id){
+  document.querySelectorAll('#toolList .tl-item').forEach(b=>{
+    b.classList.toggle('active', b.dataset.tool === id);
+  });
+}
+
+const toolPanel = document.getElementById('toolPanel');
+
+function renderTool(id){
+  setActiveToolBtn(id);
+  const templates = {
+    word: `
+      <h3>Word Counter</h3>
+      <p class="desc">Live word, character and sentence count.</p>
+      <span class="field-label">Your text</span>
+      <textarea id="wc-input" rows="6" placeholder="Paste or type text here..."></textarea>
+      <div class="stat-line">
+        <div><b id="wc-words">0</b><span>Words</span></div>
+        <div><b id="wc-chars">0</b><span>Characters</span></div>
+        <div><b id="wc-sent">0</b><span>Sentences</span></div>
+      </div>`,
+    case: `
+      <h3>Case Converter</h3>
+      <p class="desc">Switch between UPPER, lower, Title and Sentence case.</p>
+      <span class="field-label">Your text</span>
+      <textarea id="cc-input" rows="5" placeholder="Type text..."></textarea>
+      <div class="console-actions">
+        <button class="mini-btn" onclick="caseConvert('upper')">UPPERCASE</button>
+        <button class="mini-btn" onclick="caseConvert('lower')">lowercase</button>
+        <button class="mini-btn" onclick="caseConvert('title')">Title Case</button>
+        <button class="mini-btn" onclick="caseConvert('sentence')">Sentence case</button>
+      </div>
+      <div class="console-out" id="cc-out">Result will appear here...</div>`,
+    dup: `
+      <h3>Remove Duplicate Lines</h3>
+      <p class="desc">Paste lines below — duplicates removed instantly.</p>
+      <span class="field-label">Input lines</span>
+      <textarea id="dup-input" rows="6" placeholder="one&#10;one&#10;two&#10;three&#10;three"></textarea>
+      <div class="console-actions">
+        <button class="mini-btn primary" onclick="removeDup()">Remove Duplicates</button>
+      </div>
+      <div class="console-out" id="dup-out">Result will appear here...</div>`,
+    json: `
+      <h3>JSON Formatter</h3>
+      <p class="desc">Paste raw JSON to validate and pretty-print it.</p>
+      <span class="field-label">Raw JSON</span>
+      <textarea id="json-input" rows="6" placeholder='{"name":"Nabeela","apps":["Kids World"]}'></textarea>
+      <div class="console-actions">
+        <button class="mini-btn primary" onclick="formatJSON()">Format</button>
+        <button class="mini-btn" onclick="copyOut('json-out')">Copy</button>
+      </div>
+      <div class="console-out" id="json-out">Result will appear here...</div>`,
+    b64: `
+      <h3>Base64 Encode / Decode</h3>
+      <p class="desc">Convert text to Base64 or decode it back.</p>
+      <span class="field-label">Input text</span>
+      <textarea id="b64-input" rows="5" placeholder="Type text or Base64 string..."></textarea>
+      <div class="console-actions">
+        <button class="mini-btn primary" onclick="b64Run('encode')">Encode</button>
+        <button class="mini-btn" onclick="b64Run('decode')">Decode</button>
+        <button class="mini-btn" onclick="copyOut('b64-out')">Copy</button>
+      </div>
+      <div class="console-out" id="b64-out">Result will appear here...</div>`,
+    urlenc: `
+      <h3>URL Encode / Decode</h3>
+      <p class="desc">Safely encode or decode URL query strings.</p>
+      <span class="field-label">Input text or URL</span>
+      <textarea id="url-input" rows="5" placeholder="https://example.com/?q=hello world"></textarea>
+      <div class="console-actions">
+        <button class="mini-btn primary" onclick="urlRun('encode')">Encode</button>
+        <button class="mini-btn" onclick="urlRun('decode')">Decode</button>
+        <button class="mini-btn" onclick="copyOut('url-out')">Copy</button>
+      </div>
+      <div class="console-out" id="url-out">Result will appear here...</div>`,
+    password: `
+      <h3>Password Generator</h3>
+      <p class="desc">Generate a strong random password instantly.</p>
+      <div class="grid-2">
+        <div>
+          <span class="field-label">Length: <span id="pw-len-val">14</span></span>
+          <input id="pw-len" type="range" min="6" max="32" value="14" style="width:100%; accent-color:var(--amber);">
+        </div>
+        <div>
+          <label class="switch-row"><input type="checkbox" id="pw-symbols" checked> Include symbols</label>
+          <label class="switch-row"><input type="checkbox" id="pw-numbers" checked> Include numbers</label>
+        </div>
+      </div>
+      <div class="console-actions">
+        <button class="mini-btn primary" onclick="genPassword()">Generate</button>
+        <button class="mini-btn" onclick="copyOut('pw-out')">Copy</button>
+      </div>
+      <div class="console-out" id="pw-out" style="font-size:1.05rem;">Click generate...</div>`,
+    qr: `
+      <h3>QR Code Generator</h3>
+      <p class="desc">Turn any text or link into a scannable QR code.</p>
+      <span class="field-label">Text or URL</span>
+      <input id="qr-input" type="text" placeholder="https://nabeelaapps.com">
+      <div class="console-actions">
+        <button class="mini-btn primary" onclick="genQR()">Generate QR</button>
+      </div>
+      <div id="qr-result"></div>`,
+    uuid: `
+      <h3>UUID Generator</h3>
+      <p class="desc">Generate a random UUID v4 for use in your apps.</p>
+      <div class="console-actions">
+        <button class="mini-btn primary" onclick="genUUID()">Generate UUID</button>
+        <button class="mini-btn" onclick="copyOut('uuid-out')">Copy</button>
+      </div>
+      <div class="console-out" id="uuid-out">Click generate...</div>`,
+  };
+  toolPanel.innerHTML = templates[id] || `<h3>${toolMeta[id].label}</h3><p class="desc">Coming soon.</p>`;
+
+  if(id === 'word'){
+    const inp = document.getElementById('wc-input');
+    inp.addEventListener('input', ()=>{
+      const val = inp.value;
+      const words = val.trim() === '' ? 0 : val.trim().split(/\s+/).length;
+      const chars = val.length;
+      const sent = (val.match(/[.!?]+/g) || []).length;
+      document.getElementById('wc-words').textContent = words;
+      document.getElementById('wc-chars').textContent = chars;
+      document.getElementById('wc-sent').textContent = sent;
+    });
+  }
+}
+
+function caseConvert(mode){
+  const val = document.getElementById('cc-input').value;
+  let out = val;
+  if(mode === 'upper') out = val.toUpperCase();
+  if(mode === 'lower') out = val.toLowerCase();
+  if(mode === 'title') out = val.replace(/\w\S*/g, w => w[0].toUpperCase() + w.slice(1).toLowerCase());
+  if(mode === 'sentence') out = val.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g, c => c.toUpperCase());
+  document.getElementById('cc-out').textContent = out || 'Result will appear here...';
+}
+
+function removeDup(){
+  const lines = document.getElementById('dup-input').value.split('\n');
+  const unique = [...new Set(lines)];
+  document.getElementById('dup-out').textContent = unique.join('\n') || 'Result will appear here...';
+}
+
+function formatJSON(){
+  const raw = document.getElementById('json-input').value;
+  const out = document.getElementById('json-out');
+  try{
+    const parsed = JSON.parse(raw);
+    out.textContent = JSON.stringify(parsed, null, 2);
+    out.style.color = 'var(--teal)';
+  }catch(e){
+    out.textContent = 'Invalid JSON: ' + e.message;
+    out.style.color = 'var(--danger)';
+  }
+}
+
+function b64Run(mode){
+  const val = document.getElementById('b64-input').value;
+  const out = document.getElementById('b64-out');
+  try{
+    out.textContent = mode === 'encode'
+      ? btoa(unescape(encodeURIComponent(val)))
+      : decodeURIComponent(escape(atob(val)));
+    out.style.color = 'var(--teal)';
+  }catch(e){
+    out.textContent = 'Error: could not ' + mode + ' this input.';
+    out.style.color = 'var(--danger)';
+  }
+}
+
+function urlRun(mode){
+  const val = document.getElementById('url-input').value;
+  const out = document.getElementById('url-out');
+  try{
+    out.textContent = mode === 'encode' ? encodeURIComponent(val) : decodeURIComponent(val);
+    out.style.color = 'var(--teal)';
+  }catch(e){
+    out.textContent = 'Error: invalid input for ' + mode + '.';
+    out.style.color = 'var(--danger)';
+  }
+}
+
+function genPassword(){
+  const len = parseInt(document.getElementById('pw-len').value, 10);
+  const symbols = document.getElementById('pw-symbols').checked;
+  const numbers = document.getElementById('pw-numbers').checked;
+  let chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  if(numbers) chars += '0123456789';
+  if(symbols) chars += '!@#$%^&*()_+-=[]{}';
+  let pw = '';
+  const arr = new Uint32Array(len);
+  crypto.getRandomValues(arr);
+  for(let i=0;i<len;i++){ pw += chars[arr[i] % chars.length]; }
+  document.getElementById('pw-out').textContent = pw;
+}
+document.addEventListener('input', (e)=>{
+  if(e.target && e.target.id === 'pw-len'){
+    document.getElementById('pw-len-val').textContent = e.target.value;
+  }
+});
+
+function genQR(){
+  const val = document.getElementById('qr-input').value.trim();
+  const res = document.getElementById('qr-result');
+  if(!val){ res.innerHTML = '<p style="color:var(--danger); font-size:.85rem; margin-top:10px;">Please enter some text or a URL.</p>'; return; }
+  const url = 'https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=' + encodeURIComponent(val);
+  res.innerHTML = `<div class="qr-preview"><img src="${url}" width="180" height="180" alt="QR Code"></div>`;
+}
+
+function genUUID(){
+  const uuid = crypto.randomUUID ? crypto.randomUUID() : 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c=>{
+    const r = Math.random()*16|0, v = c==='x'?r:(r&0x3|0x8);
+    return v.toString(16);
+  });
+  document.getElementById('uuid-out').textContent = uuid;
+}
+
+function copyOut(id){
+  const text = document.getElementById(id).textContent;
+  navigator.clipboard.writeText(text).then(()=> showToast('Copied to clipboard ✓'));
+}
+
+toolListEl.addEventListener('click', (e)=>{
+  const btn = e.target.closest('.tl-item');
+  if(btn) renderTool(btn.dataset.tool);
+});
+renderTool('word');
+
+const heroBody = document.getElementById('heroBody');
+function renderHero(id){
+  document.querySelectorAll('#heroTabs .console-tab').forEach(b=> b.classList.toggle('active', b.dataset.tool===id));
+  if(id === 'word'){
+    heroBody.innerHTML = `
+      <span class="field-label">Type or paste text</span>
+      <textarea id="h-wc" rows="3" placeholder="Start typing..."></textarea>
+      <div class="stat-line" style="margin-top:12px;">
+        <div><b id="h-wc-words">0</b><span>Words</span></div>
+        <div><b id="h-wc-chars">0</b><span>Characters</span></div>
+      </div>`;
+    document.getElementById('h-wc').addEventListener('input', (e)=>{
+      const v = e.target.value;
+      document.getElementById('h-wc-words').textContent = v.trim()===''?0:v.trim().split(/\s+/).length;
+      document.getElementById('h-wc-chars').textContent = v.length;
+    });
+  }
+  if(id === 'password'){
+    heroBody.innerHTML = `
+      <span class="field-label">Length: <span id="h-pw-len-val">14</span></span>
+      <input id="h-pw-len" type="range" min="6" max="24" value="14" style="width:100%; accent-color:var(--amber);">
+      <div class="console-actions">
+        <button class="mini-btn primary" onclick="hGenPw()">Generate</button>
+      </div>
+      <div class="console-out" id="h-pw-out">Click generate...</div>`;
+    document.getElementById('h-pw-len').addEventListener('input', e=> document.getElementById('h-pw-len-val').textContent = e.target.value);
+  }
+  if(id === 'case'){
+    heroBody.innerHTML = `
+      <span class="field-label">Type text</span>
+      <textarea id="h-cc" rows="3" placeholder="Sample Text Here"></textarea>
+      <div class="console-actions">
+        <button class="mini-btn" onclick="hCase('upper')">UPPER</button>
+        <button class="mini-btn" onclick="hCase('lower')">lower</button>
+        <button class="mini-btn" onclick="hCase('title')">Title</button>
+      </div>
+      <div class="console-out" id="h-cc-out">Result appears here...</div>`;
+  }
+}
+function hGenPw(){
+  const len = parseInt(document.getElementById('h-pw-len').value,10);
+  const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*';
+  let pw=''; const arr = new Uint32Array(len); crypto.getRandomValues(arr);
+  for(let i=0;i<len;i++) pw += chars[arr[i] % chars.length];
+  document.getElementById('h-pw-out').textContent = pw;
+}
+function hCase(mode){
+  const val = document.getElementById('h-cc').value;
+  let out = val;
+  if(mode==='upper') out = val.toUpperCase();
+  if(mode==='lower') out = val.toLowerCase();
+  if(mode==='title') out = val.replace(/\w\S*/g, w=> w[0].toUpperCase()+w.slice(1).toLowerCase());
+  document.getElementById('h-cc-out').textContent = out || 'Result appears here...';
+}
+document.getElementById('heroTabs').addEventListener('click', e=>{
+  const btn = e.target.closest('.console-tab');
+  if(btn) renderHero(btn.dataset.tool);
+});
+renderHero('word');
+
+const promptData = {
+  Business:[
+    "Act as a business consultant. Analyze my startup idea and list 5 risks with mitigation strategies: [describe idea].",
+    "Write a professional cold email pitching my freelance services to a potential client in [industry].",
+  ],
+  Marketing:[
+    "Create a 7-day social media content calendar for a [type of business] targeting [audience].",
+    "Write 5 scroll-stopping Instagram captions for a product launch in the [niche] niche.",
+  ],
+  Coding:[
+    "Explain this error message like I'm a beginner, then give me the fixed code: [paste error].",
+    "Refactor this function for readability and performance, and explain each change: [paste code].",
+  ],
+  Study:[
+    "Summarize this topic into 10 easy-to-remember bullet points for exam revision: [topic].",
+    "Quiz me with 10 questions on [subject] and check my answers one by one.",
+  ],
+  YouTube:[
+    "Write 5 clickable YouTube titles and thumbnail text ideas for a video about [topic].",
+    "Write a 60-second YouTube Shorts script hook about [topic] that stops the scroll.",
+  ],
+  Blog:[
+    "Write an SEO-optimized blog outline with H2/H3 headings for the topic: [topic].",
+    "Turn these bullet points into a friendly, conversational blog introduction: [bullet points].",
+  ],
+};
+const promptTabsEl = document.getElementById('promptTabs');
+const promptGridEl = document.getElementById('promptGrid');
+Object.keys(promptData).forEach((cat,i)=>{
+  promptTabsEl.innerHTML += `<button class="p-tab ${i===0?'active':''}" data-cat="${cat}">${cat}</button>`;
+});
+function renderPrompts(cat){
+  document.querySelectorAll('.p-tab').forEach(b=> b.classList.toggle('active', b.dataset.cat===cat));
+  promptGridEl.innerHTML = promptData[cat].map(p=>`
+    <div class="prompt-card reveal">
+      <p>${p}</p>
+      <div class="foot">
+        <span class="badge">${cat}</span>
+        <button class="copy-btn" onclick="copyPrompt(this)" data-text="${p.replace(/"/g,'&quot;')}">⧉ Copy Prompt</button>
+      </div>
+    </div>`).join('');
+  if(typeof initReveal === 'function') initReveal();
+}
+function copyPrompt(btn){
+  navigator.clipboard.writeText(btn.dataset.text).then(()=> showToast('Prompt copied ✓'));
+}
+promptTabsEl.addEventListener('click', e=>{
+  const btn = e.target.closest('.p-tab');
+  if(btn) renderPrompts(btn.dataset.cat);
+});
+renderPrompts('Business');
+
+const blogData = [
+  {title:"10 Best AI Tools You Aren't Using Yet", tag:"AI Tools", color:"#FFB238",
+   content:`Most people stop at ChatGPT and call it a day, but the real productivity gains sit one layer deeper.
+
+1. Perplexity — skip the ten-tabs-of-search-results routine and get a sourced, direct answer in one go.
+2. Canva AI — turns a rough idea into a finished social post or slide deck in minutes, no design background needed.
+3. ElevenLabs — realistic voiceovers for reels, tutorials or audiobooks without hiring a voice artist.
+4. Runway — trim, extend or generate video clips using simple text instructions.
+5. Notion AI — drafts meeting notes, summaries and project docs right where you already work.
+6. Gamma — builds a full presentation from a one-line prompt.
+7. Midjourney — strong choice when you need a striking image fast, for thumbnails or covers.
+8. Otter.ai — transcribes and summarizes calls automatically, useful for client meetings.
+9. Descript — edit a podcast or video by editing the text transcript itself.
+10. Gemini — handy when a task needs both text and image understanding together.
+
+Pick two or three from this list that match your actual workflow rather than trying all ten at once — that's how the habit actually sticks.`},
+  {title:"ChatGPT Tips: Getting Better Answers Every Time", tag:"ChatGPT", color:"#5EEAD4",
+   content:`The quality of what you get back is almost always a function of what you put in. A few habits make a real difference:
+
+Give it a role. Starting with "act as a senior Flutter developer" or "act as a marketing strategist" shapes the tone and depth of the whole reply.
+
+Be specific about the output format. Ask for a table, a numbered list, or a fixed word count instead of leaving it open-ended — you'll get something usable on the first try.
+
+Share context, not just the question. Pasting the actual error message, the actual paragraph, or the actual code block beats describing it in your own words.
+
+Iterate instead of restarting. If the first answer is close but not quite right, tell it exactly what to change rather than opening a new chat.
+
+Ask for reasoning before the final answer on anything complex — it catches mistakes before they reach you.
+
+Split big asks into steps. "Write an outline" then "now expand section 2" produces better results than one giant prompt.
+
+None of this is complicated, but doing it consistently is what separates people who find AI genuinely useful from people who bounce off it after one bad reply.`},
+  {title:"How to Use Gemini for Everyday Productivity", tag:"Guide", color:"#8ab4f8",
+   content:`Gemini's strength is handling text, images and everyday Google-ecosystem tasks in the same conversation, which makes it a good fit for daily admin work rather than just one-off questions.
+
+Inbox and docs: paste in a long email thread and ask for a three-line summary plus a suggested reply — useful before client calls.
+
+Images: drop in a screenshot of a form, invoice, or handwritten note and ask it to extract the text or explain what's in it.
+
+Planning: describe a week's tasks in plain language and ask for a prioritized order — it's decent at spotting what's actually urgent versus what feels urgent.
+
+Learning: if you're picking up a new tool or concept, ask it to explain the idea, then immediately ask "now quiz me on this" — the back-and-forth cements it faster than reading alone.
+
+Content drafts: for social captions or short blog intros, give it your rough bullet points and a target tone (casual, professional, playful) rather than asking it to "write something."
+
+The pattern across all of these: treat it like a fast, patient assistant sitting next to you, not a search engine — the more context and the clearer the ask, the better the output.`},
+];
+
+function openBlogModal(i){
+  const b = blogData[i];
+  document.getElementById('blogModalTag').textContent = b.tag;
+  document.getElementById('blogModalTag').style.color = b.color;
+  document.getElementById('blogModalTitle').textContent = b.title;
+  document.getElementById('blogModalBody').textContent = b.content;
+  document.getElementById('blogModalOverlay').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closeBlogModal(){
+  document.getElementById('blogModalOverlay').classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+const pageData = {
+  about:{
+    tag:"About", color:"#FFB238", title:"About ToolVerse AI",
+    body:`ToolVerse AI is a single home base for anyone working with AI day to day — a directory of the most useful AI tools, a growing library of ready-to-use ChatGPT prompts, and a set of free online utilities that just work, with no sign-up required.
+
+We built it because switching between a dozen bookmarked sites just to write a caption, compress an image, or generate a password is a waste of time. Everything here runs fast, stays free at the utility level, and is organized so you can find what you need in seconds.
+
+New AI tools, prompt packs and utilities are added regularly. If there's something you'd like to see covered, use the "Submit a Tool" link below — we read every submission.`},
+  advertise:{
+    tag:"Advertise", color:"#5EEAD4", title:"Advertise on ToolVerse AI",
+    body:`ToolVerse AI reaches people actively searching for AI tools, prompts and productivity utilities — a high-intent audience for anything AI or productivity related.
+
+Available placements:
+• Featured Tool listing in the Trending AI Tools section
+• Sponsored placement in the Free Tools directory
+• Premium Prompt Pack partnerships
+• Newsletter and blog sponsorships (coming soon)
+
+Rates depend on placement and duration. To discuss options, reach out with your tool or brand details and we'll get back to you with availability and pricing.`},
+  privacy:{
+    tag:"Legal", color:"#9AA0AE", title:"Privacy Policy",
+    body:`ToolVerse AI respects your privacy. Here's a plain-language summary of how things work:
+
+Free tools on this site (Word Counter, Password Generator, JSON Formatter, etc.) run entirely in your browser — nothing you type into them is sent to or stored on our servers.
+
+If you submit a tool for listing or contact us, we collect only what you provide (name, email, tool details) and use it solely to review submissions or respond to your message.
+
+We do not sell personal data to third parties. Basic, anonymized analytics may be used to understand overall site usage and improve the experience.
+
+If advertising is enabled on the site, ad partners may use standard, industry-normal tracking (such as cookies) subject to their own privacy policies.
+
+This is a summary policy for a demo/starter site — replace it with a full, legally reviewed privacy policy before taking real user data in production.`},
+  terms:{
+    tag:"Legal", color:"#9AA0AE", title:"Terms of Use",
+    body:`By using ToolVerse AI, you agree to the following:
+
+The free tools and information on this site are provided "as is," without warranty of any kind. Always double-check critical output (passwords, generated code, formatted data) before relying on it.
+
+Links to third-party AI tools take you to external sites with their own terms and pricing — ToolVerse AI is not responsible for their content, availability, or policies.
+
+Prompts listed in the Prompt Library are provided for your own personal or business use; you're free to copy and modify them.
+
+Don't use this site to submit or promote tools that are illegal, malicious, or designed to harm users.
+
+We may update these terms as the site evolves. Continued use of the site after changes means you accept the updated terms.
+
+This is a starter terms-of-use template — have it reviewed by a legal professional before launching publicly.`},
+};
+
+function openPageModal(key){
+  const p = pageData[key];
+  const tagEl = document.getElementById('blogModalTag');
+  tagEl.textContent = p.tag;
+  tagEl.style.color = p.color;
+  document.getElementById('blogModalTitle').textContent = p.title;
+  document.getElementById('blogModalBody').textContent = p.body;
+  document.getElementById('blogModalOverlay').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function openSubmitModal(){
+  document.getElementById('submitModalOverlay').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closeSubmitModal(){
+  document.getElementById('submitModalOverlay').classList.remove('show');
+  document.body.style.overflow = '';
+}
+function handleSubmitTool(e){
+  e.preventDefault();
+  const name = document.getElementById('st-name').value.trim();
+  if(!name){ return; }
+  closeSubmitModal();
+  document.getElementById('submitToolForm').reset();
+  showToast('Thanks! "' + name + '" was submitted for review ✓');
+}
+
+document.getElementById('blogGrid').innerHTML = blogData.map((b,i)=>`
+  <div class="blog-card reveal" onclick="openBlogModal(${i})" role="button" tabindex="0">
+    <div class="blog-thumb" style="background:color-mix(in srgb, ${b.color} 20%, transparent); color:${b.color}">${b.tag}</div>
+    <div class="bc-body">
+      <h4>${b.title}</h4>
+      <span>5 min read · Tap to read</span>
+    </div>
+  </div>`).join('');
+
+document.getElementById('globalSearch').addEventListener('keydown', e=>{
+  if(e.key === 'Enter'){
+    const q = e.target.value.toLowerCase().trim();
+    if(!q) return;
+    const match = aiTools.find(t=> t.name.toLowerCase().includes(q));
+    if(match){
+      document.getElementById('ai-tools').scrollIntoView({behavior:'smooth'});
+      showToast('Found: ' + match.name);
+    } else {
+      showToast('No AI tool matched — try Free Tools section');
+    }
+  }
+});
+
+/* ============ SCROLL REVEAL ============ */
+function initReveal(){
+  const items = document.querySelectorAll('.reveal:not(.observed)');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.12});
+  items.forEach((el, i)=>{
+    el.classList.add('observed');
+    el.style.transitionDelay = (i % 4) * 60 + 'ms';
+    io.observe(el);
+  });
+}
+initReveal();
+</script>
+</body>
+</html>
