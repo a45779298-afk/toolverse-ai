@@ -1,0 +1,5 @@
+User-agent: *
+
+Allow: /
+
+Sitemap: https://toolverse-ai-nine.vercel.app/sitemap.xml
